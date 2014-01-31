@@ -9,7 +9,7 @@ public class GameCycle extends JFrame {
 	private JPanel panel;
 	
 	public static void main(String[] args) {
-		
+		 GameCycle game=new  GameCycle();
 
 	}
 	
