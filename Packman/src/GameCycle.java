@@ -10,6 +10,7 @@ public class GameCycle extends JFrame {
 	
 	public static void main(String[] args) {
 		 GameCycle game=new  GameCycle();
+		 game.setVisible(true);
 
 	}
 	
