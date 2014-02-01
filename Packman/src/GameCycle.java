@@ -11,7 +11,7 @@ public class GameCycle extends JFrame {
 	private int yPosition=0;
 	private int width=70;
 	private int height=30;
-	private Map map;
+	private Draw draw;
 	
 	public static void main(String[] args) {
 		GameCycle game = new GameCycle();
@@ -29,7 +29,7 @@ public class GameCycle extends JFrame {
 				g.fillRect(0, 0, 500, 500);
 			
 				
-				map.draw(g);
+				draw.draw(g);
 							
 			
 				}
@@ -63,7 +63,7 @@ public class GameCycle extends JFrame {
 	private void prepare() {
 		
 				
-		map =new Map(xPosition,yPosition,width,height);
+		draw =new Draw(xPosition,yPosition,width,height);
 
 	}
 
