@@ -21,7 +21,7 @@ public class GameCycle extends JFrame {
 				g.setColor(Color.BLACK);
 				g.fillRect(0, 0, 640, 500);
 				g.setColor(Color.BLUE);
-System.out.println("fdfg");
+
 			}
 		};
 		panel.setSize(500, 500);
