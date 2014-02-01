@@ -16,7 +16,7 @@ public class Map {
 		this.yPosition = yPosition;
 		this.width = width;
 		this.height = height;
-System.out.println("Nikita LOX");
+
 	}
 	
 	public void draw(Graphics g) {
