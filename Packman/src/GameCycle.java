@@ -1,5 +1,6 @@
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.event.KeyListener;
 import java.util.concurrent.TimeUnit;
 
 import javax.swing.JFrame;
@@ -9,9 +10,10 @@ public class GameCycle extends JFrame {
 	private JPanel panel;
 	private int xPosition=0;
 	private int yPosition=0;
-	private int width=70;
-	private int height=30;
+	private int width=40;
+	private int height=40;
 	private Draw draw;
+	private Packman packman;
 	
 	public static void main(String[] args) {
 		GameCycle game = new GameCycle();
@@ -30,7 +32,7 @@ public class GameCycle extends JFrame {
 			
 				
 				draw.draw(g);
-							
+				packman.draw1(g);	
 			
 				}
 		};
@@ -64,7 +66,10 @@ public class GameCycle extends JFrame {
 		
 				
 		draw =new Draw(xPosition,yPosition,width,height);
-
+		packman=new Packman(xPosition,yPosition,width,height);
+		
+		addKeyListener(packman);
+		
 	}
 
 }
