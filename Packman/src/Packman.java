@@ -10,7 +10,10 @@ public class Packman extends KeyAdapter  {
 	private int yPosition;
 	private int width;
 	private int height;
-	private int pic=0;
+	private boolean pic=false;
+	private int turn=30;
+	private int mouthOpen=300;
+	private int mouthClose=360;
 	public Packman(int xPosition, int yPosition, int width, int height){
 		this.xPosition = xPosition;
 		this.yPosition = yPosition;
@@ -24,25 +27,35 @@ public class Packman extends KeyAdapter  {
 		
 		g.setColor(Color.YELLOW);
 		
-		if(pic==0)
-			g.fillArc(xPosition, yPosition, width, height,30,300);
+		if(pic==true)
+			g.fillArc(xPosition, yPosition, width, height,turn,mouthOpen);
 		else
-		if(pic==1)
-			g.fillArc(xPosition, yPosition, width, height,30,360);
+		if(pic==false)
+			g.fillArc(xPosition, yPosition, width, height,turn,mouthClose);
 	}
 	
 	public void keyPressed(KeyEvent e) {
 		switch (e.getKeyCode()) {
 		case KeyEvent.VK_RIGHT:
 		
-		
-
-			if(pic==0){pic=1;}else{pic=0;}
+			turn =30;
+			pic= !pic ? true:false; 
+			
 			break;
 		case KeyEvent.VK_LEFT:
 			
+			turn =210;
+			pic= !pic ? true:false; 
+		
+			break;
+		case KeyEvent.VK_UP:
 			
-			if(pic==0){pic=1;}else{pic=0;}
+			turn =120;
+			pic= !pic ? true:false; 
+			break;
+		case KeyEvent.VK_DOWN:
+			turn =300;
+			pic= !pic ? true:false; 
 			break;
 		}
 	}
