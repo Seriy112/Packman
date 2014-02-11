@@ -14,10 +14,12 @@ public class Draw {
 	private int yPosition;
 	private int width;
 	private int height;
+	private int widthPoint=3;
+	private int heightPoint=3;
+	
 	int a;
 	int b;
 
-	Draw nov;
 	
 	
 	
@@ -69,30 +71,30 @@ public class Draw {
 				 {1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1},
 				 {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
 		              };
-		//int a=nov.xPosition;
-	//	int b=nov.yPosition;
-		//System.out.println(a+"===="+b);
-		//int v=nov.a;
-		//int vv=nov.b;
-   //  mass[v][vv]=3;
+
 		for(int i=0; i<n;i++){
 					for(int j=0;j<m;j++){
 						if(mass[i][j]==1)
-						{
+							{
 							if(i>0 && i!=m-2 && j>0 && j!=n  ){
-					g.setColor(Color.BLUE);
-					g.fillRect(xPosition, yPosition, width, height);
-							} 
-							else {
+								g.setColor(Color.BLUE);
+								g.fillRect(xPosition, yPosition, width, height);
+								} 
+								else {
 								g.setColor(Color.GREEN);
 								g.fillRect(xPosition, yPosition, width, height);	
+								}
 							}
-				}
-						if(mass[i][j]==0){
-							
+						if(mass[i][j]==0)
+							{	
 							g.setColor(Color.yellow);
-							g.fillRect(xPosition+5, yPosition+5, width-12, height-12);	
-									} 
+							g.fillOval(xPosition, yPosition, widthPoint, heightPoint);	
+							}
+						if(mass[i][j]==7)
+						{
+							
+							
+						}
                       xPosition += width;
 					}
 						yPosition += height;
@@ -104,13 +106,7 @@ public class Draw {
 			         
 			}
 
-	public void changex(int x,int y){
-		
-		//draw.a=x;
-		nov.b=y;
-	System.out.println("=="+nov.a);
-	
-	}
+
 	
 	
 

@@ -15,10 +15,7 @@ public class GameCycle extends JFrame {
 	private int height=15;         
 	private Draw draw;
 	private Packman packman;
-	private int xPositionPack=-3;
-	private int yPositionPack=387;
-	public int x=10;
-	public int y=10;
+
 	
 	public static void main(String[] args) {
 		GameCycle game = new GameCycle();
@@ -37,7 +34,7 @@ public class GameCycle extends JFrame {
 			
 				packman.pic(g);
 				draw.draw(g);
-				//int a=packman.getXPosition();
+				
 			
 			
 			
@@ -77,7 +74,7 @@ public class GameCycle extends JFrame {
 		
 				
 		draw =new Draw(xPosition,yPosition,width,height);
-		packman=new Packman(xPositionPack,yPositionPack);
+		packman=new Packman(xPosition,yPosition);
 		addKeyListener(packman);
 		
 		
