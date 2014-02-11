@@ -18,6 +18,10 @@ public class Packman extends KeyAdapter  {
 	private int height=15;
 	public int x=15;
 	public int y=15;
+	private boolean pic;
+	private int turn=30;
+	private int mouthOpen=300;
+	private int mouthClose=360;
 	
 
 	
@@ -25,12 +29,17 @@ public class Packman extends KeyAdapter  {
 	public Packman(int xPosition, int yPosition){
 		this.xPositionPack = xPosition+30;
 		this.yPositionPack = yPosition+30;
-	//	draw=new Draw(0, 0, width, height);
+
 	}	
 	
-	public void drawpackman(Graphics g){
+	public void pic(Graphics g){
 		g.setColor(Color.YELLOW);
-		g.fillOval(xPositionPack, yPositionPack, widthPack, heightPack);
+		
+		if(pic==true)
+			g.fillArc(xPositionPack, yPositionPack, width, height,turn,mouthOpen);
+		else
+		if(pic==false)
+			g.fillArc(xPositionPack, yPositionPack, width, height,turn,mouthClose);
 		
 		
 		 
@@ -39,24 +48,27 @@ public class Packman extends KeyAdapter  {
 		draw =new Draw(0,0,width,height);
 		switch (e.getKeyCode()) {
 		case KeyEvent.VK_RIGHT:	
-			
+			turn =30;
+			pic= !pic ? true:false; 
 			this.xPositionPack +=17;
-	  
 			
-		 	
-		break;
+			
+			break;
 		case KeyEvent.VK_LEFT:
 			this.xPositionPack -=17;
+			turn =210;
+			pic= !pic ? true:false; 
 		
-		    break;
+			break;
 		case KeyEvent.VK_UP:
 			this.yPositionPack -=17;
-			
+			turn =120;
+			pic= !pic ? true:false; 
 			break;
 		case KeyEvent.VK_DOWN:
 			this.yPositionPack +=17;
-			
-
+			turn =300;
+			pic= !pic ? true:false; 
 			break;
 		}
 		

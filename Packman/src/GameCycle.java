@@ -1,19 +1,24 @@
 import java.awt.Color;
 import java.awt.Graphics;
-import java.awt.event.KeyListener;
 import java.util.concurrent.TimeUnit;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.text.ChangedCharSetException;
+
 
 public class GameCycle extends JFrame {
 	private JPanel panel;
-	private int xPosition=0;
+    private int xPosition=0;
 	private int yPosition=0;
-	private int width=40;
-	private int height=40;
+	private int width=15;
+	private int height=15;         
 	private Draw draw;
 	private Packman packman;
+	private int xPositionPack=-3;
+	private int yPositionPack=387;
+	public int x=10;
+	public int y=10;
 	
 	public static void main(String[] args) {
 		GameCycle game = new GameCycle();
@@ -24,15 +29,21 @@ public class GameCycle extends JFrame {
 
 	private GameCycle() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setSize(500, 500);
+		setSize(560, 500);
 		panel = new JPanel() {
 			public void paint(Graphics g) {
 				g.setColor(Color.BLACK);
-				g.fillRect(0, 0, 500, 500);
+				g.fillRect(0, 0, 560, 500);
+			
+				packman.pic(g);
+				draw.draw(g);
+				//int a=packman.getXPosition();
+			
+			
 			
 				
-				draw.draw(g);
-				packman.draw1(g);	
+			
+							
 			
 				}
 		};
@@ -66,10 +77,11 @@ public class GameCycle extends JFrame {
 		
 				
 		draw =new Draw(xPosition,yPosition,width,height);
-		packman=new Packman(xPosition,yPosition,width,height);
-		
+		packman=new Packman(xPositionPack,yPositionPack);
 		addKeyListener(packman);
 		
+		
 	}
+
 
 }
