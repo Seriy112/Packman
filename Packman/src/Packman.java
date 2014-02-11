@@ -5,61 +5,68 @@ import java.awt.event.KeyEvent;
 
 
 public class Packman extends KeyAdapter  {
+	
+	public int xPositionPack;
+	public int yPositionPack;
+	public int widthPack=15;
+	public int heightPack=15;
+	private static final int n=31;
+	private static final int m=32;
+	private GameCycle game;
+	private Draw draw;
+	private int width=15;
+	private int height=15;
+	public int x=15;
+	public int y=15;
+	
 
-	private int xPosition;
-	private int yPosition;
-	private int width;
-	private int height;
-	private boolean pic=false;
-	private int turn=30;
-	private int mouthOpen=300;
-	private int mouthClose=360;
-	public Packman(int xPosition, int yPosition, int width, int height){
-		this.xPosition = xPosition;
-		this.yPosition = yPosition;
-		this.width = width;
-		this.height = height;
-		
-	}
 	
+
+	public Packman(int xPosition, int yPosition){
+		this.xPositionPack = xPosition+30;
+		this.yPositionPack = yPosition+30;
+	//	draw=new Draw(0, 0, width, height);
+	}	
 	
-	public void draw1(Graphics g) {
-		
+	public void drawpackman(Graphics g){
 		g.setColor(Color.YELLOW);
+		g.fillOval(xPositionPack, yPositionPack, widthPack, heightPack);
 		
-		if(pic==true)
-			g.fillArc(xPosition, yPosition, width, height,turn,mouthOpen);
-		else
-		if(pic==false)
-			g.fillArc(xPosition, yPosition, width, height,turn,mouthClose);
+		
+		 
 	}
-	
 	public void keyPressed(KeyEvent e) {
+		draw =new Draw(0,0,width,height);
 		switch (e.getKeyCode()) {
-		case KeyEvent.VK_RIGHT:
-		
-			turn =30;
-			pic= !pic ? true:false; 
+		case KeyEvent.VK_RIGHT:	
 			
-			break;
+			this.xPositionPack +=17;
+	  
+			
+		 	
+		break;
 		case KeyEvent.VK_LEFT:
-			
-			turn =210;
-			pic= !pic ? true:false; 
+			this.xPositionPack -=17;
 		
-			break;
+		    break;
 		case KeyEvent.VK_UP:
+			this.yPositionPack -=17;
 			
-			turn =120;
-			pic= !pic ? true:false; 
 			break;
 		case KeyEvent.VK_DOWN:
-			turn =300;
-			pic= !pic ? true:false; 
+			this.yPositionPack +=17;
+			
+
 			break;
 		}
+		
+		
 	}
+	
+	//28 2
 
+		
+	
 	
 	
 }
