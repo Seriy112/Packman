@@ -18,6 +18,7 @@ public class Packman extends KeyAdapter  {
 	private int y=1;
 	private Draw draw;
 	
+	
 
 	
 
@@ -42,30 +43,36 @@ public class Packman extends KeyAdapter  {
 	public void keyPressed(KeyEvent e) {
 		switch (e.getKeyCode()) {
 		case KeyEvent.VK_RIGHT: 
+			if(draw.mass[x][y+1]!=1)
+			{
 		turn =30;
 			pic= !pic ? true:false; 
 		y++;
 		
-	
+			}
 			
 			break;
-		case KeyEvent.VK_LEFT: y--;
-			
-			turn =210;
+		case KeyEvent.VK_LEFT: 
+			if(draw.mass[x][y-1]!=1)
+			{ y--;
+		    turn =210;
 			pic= !pic ? true:false; 
-		
+		}
 			break;
-		case KeyEvent.VK_UP: x--;
+		case KeyEvent.VK_UP: 
+			if(draw.mass[x-1][y]!=1){
+			x--;
 			turn =120;
 			pic= !pic ? true:false; 
-			
+			}
 			break;
 		case KeyEvent.VK_DOWN:
+			if(draw.mass[x+1][y]!=1){
 			 x++;
 		
 			turn =300;
 			pic= !pic ? true:false; 
-			
+			}
 			break;
 		}
 		
@@ -79,8 +86,10 @@ public class Packman extends KeyAdapter  {
 	public int getY() {
 		return y;
 	}	
+	void link(Draw mass){
 		
-	
-	
+		draw=mass;
+	}
+
 	
 }
