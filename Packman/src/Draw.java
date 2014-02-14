@@ -114,14 +114,12 @@ public class Draw extends JFrame {
 							
 							packman.pic(g);     
 						    
-					if(mass[packman.getX()][packman.getY()]==0){
+								if(mass[packman.getX()][packman.getY()]==0){
 						
-						eatPoint++; System.out.println(eatPoint);
-						if(eatPoint==6) WinLoss=false;
+										eatPoint++; 
+										if(eatPoint==6) WinLoss=false;
 						
-					}
-					
-						
+									}
 					
 							mass[packman.getX()][packman.getY()]=7;	
 							

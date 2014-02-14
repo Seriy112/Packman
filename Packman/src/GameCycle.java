@@ -1,11 +1,15 @@
 import java.awt.Color;
 import java.awt.Graphics;
-import java.util.concurrent.TimeUnit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+
+
+import javax.swing.Timer;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import javax.swing.text.ChangedCharSetException;
-import javax.swing.text.StyledEditorKit.FontSizeAction;
+
 
 
 public class GameCycle extends JFrame {
@@ -16,7 +20,7 @@ public class GameCycle extends JFrame {
 	private int height=15;         
 	private Draw draw;
 	private Packman packman;
-
+	private Timer timer;
 	
 	public static void main(String[] args) {
 		GameCycle game = new GameCycle();
@@ -54,23 +58,15 @@ public class GameCycle extends JFrame {
 	}
 
 	private void cycle(){
-		while (true) {
-			long startTime = System.currentTimeMillis();
-	
-			GameCycle.this.repaint();
-
-						
-			long endTime = System.currentTimeMillis();
-			long deltaTime = endTime - startTime;
-			if (deltaTime < 10) {
-				try {
-					TimeUnit.MILLISECONDS.sleep(10 - deltaTime);
-				} catch (InterruptedException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-			}
-		}
+		
+		
+		 ActionListener taskPerformer = new ActionListener() {
+		      public void actionPerformed(ActionEvent evt) {
+		    	  GameCycle.this.repaint();
+		      }
+		  };
+		  new Timer(30, taskPerformer).start();
+		
 
 	}
 	
@@ -80,6 +76,7 @@ public class GameCycle extends JFrame {
 		draw =new Draw(xPosition,yPosition,width,height);
 		packman=new Packman(xPosition,yPosition);
 		draw.link(packman);
+		packman.link(draw);
 		addKeyListener(packman);
 		
 	}
