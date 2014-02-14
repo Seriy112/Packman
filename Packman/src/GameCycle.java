@@ -5,12 +5,13 @@ import java.util.concurrent.TimeUnit;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.text.ChangedCharSetException;
+import javax.swing.text.StyledEditorKit.FontSizeAction;
 
 
 public class GameCycle extends JFrame {
-	private JPanel panel;
-    private int xPosition=0;
-	private int yPosition=0;
+	private JPanel panel,Win;
+    private int xPosition=20;
+	private int yPosition=410;
 	private int width=15;
 	private int height=15;         
 	private Draw draw;
@@ -32,20 +33,23 @@ public class GameCycle extends JFrame {
 				g.setColor(Color.BLACK);
 				g.fillRect(0, 0, 560, 500);
 			
-				packman.pic(g);
+		
 				draw.draw(g);
 				
-			
-			
-			
+				if(draw.WinLoss==false) {
+
+					
+					
+					g.drawString("YOU WIN )))", 200, 200);
 				
-			
-							
-			
+					
+				}
+		
 				}
 		};
 		panel.setSize(500, 500);
 		add(panel);
+		
 
 	}
 
@@ -75,8 +79,8 @@ public class GameCycle extends JFrame {
 				
 		draw =new Draw(xPosition,yPosition,width,height);
 		packman=new Packman(xPosition,yPosition);
+		draw.link(packman);
 		addKeyListener(packman);
-		
 		
 	}
 
