@@ -86,6 +86,7 @@ public class Draw extends JFrame {
 		
 		for( i=0; i<n;i++){
 					for(j=0;j<m;j++){
+						if(mass[i][j]==0)eatPoint++;
 						if(mass[i][j]==1)
 							{
 							if(i>0 && i!=m-2 && j>0 && j!=n  ){
@@ -138,6 +139,8 @@ public class Draw extends JFrame {
 					}
 			 xPosition=0;
 			 yPosition=0;
+			 if(eatPoint==0)WinLoss=false;
+			 eatPoint=0;
 			 
 			         
 			}
