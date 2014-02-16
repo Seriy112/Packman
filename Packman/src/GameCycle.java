@@ -75,7 +75,7 @@ public class GameCycle extends JFrame {
 		draw.link(packman);
 		packman.link(draw);
 		addKeyListener(packman);
-		
+		packman.move();
 	}
 
 

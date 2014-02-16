@@ -49,35 +49,35 @@ public class Packman extends KeyAdapter  {
 		switch (e.getKeyCode()) {
 		case KeyEvent.VK_RIGHT: 
 		x1=0;y1=1;
-		//	{y++;}
+		
 		turn =30;
-		 move();
+	
 		
 
 			break;
 		case KeyEvent.VK_LEFT: 
-			//y--
+		
 			x1=0;y1=-1;
 		    turn =210;
-		    move(); 
+	
 	
 			break;
 		case KeyEvent.VK_UP: 
 		
-			//x--
+		
 			    	x1=-1;y1=0;
 			    	  turn =120;
-						move();
+				
 			  		
 	
 			
 			
 			break;
 		case KeyEvent.VK_DOWN:
-			//x++
+		
 			x1=1;y1=0;
 			turn =300;
-			move();
+	
 			
 			break;
 		}
@@ -89,6 +89,7 @@ public class Packman extends KeyAdapter  {
 	public void move(){
 		 ActionListener taskPerformer = new ActionListener() {
 		      public void actionPerformed(ActionEvent evt) {
+		    	  
 		    	  if(draw.mass[x+x1][y+y1]!=1){
 		  			
 		  			x=x+x1;y=y+y1;} 
