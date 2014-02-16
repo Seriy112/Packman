@@ -28,6 +28,7 @@ public class Draw extends JFrame {
 	private int j=0;
     private int oldI=29;
 	private int oldJ=1;
+	private boolean startPlase=true;
 	Collision collision;
 	public int mass[][]={
 			 {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
@@ -59,7 +60,7 @@ public class Draw extends JFrame {
 			 {1,0,0,1,1,1,1,1,1,0,0,1,0,0,0,1,1,0,0,0,1,0,0,1,1,1,1,1,1,0,0,1},
 			 {1,0,0,0,0,0,0,0,1,0,0,1,1,1,1,1,1,1,1,1,1,0,0,1,0,0,0,0,0,0,0,1},
 		     {1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1},
-			 {1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1},
+			 {1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,7,1},
 			 {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
 	              };
 
@@ -104,7 +105,7 @@ public class Draw extends JFrame {
 							}
 						if(mass[i][j]==7)
 						{
-							
+							if(startPlase){packman.startPlace(i, j); startPlase=false;}
 							if(oldI!=i || oldJ!=j){
 								mass[oldI][oldJ]=3;
 								 oldI=i;
