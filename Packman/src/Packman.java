@@ -1,7 +1,10 @@
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import javax.swing.Timer;
 
 
 public class Packman extends KeyAdapter  {
@@ -16,8 +19,10 @@ public class Packman extends KeyAdapter  {
 	private int mouthClose=360;
 	private int x=29;
 	private int y=1;
+	private int x1=1;
+	private int y1=1;
 	private Draw draw;
-	
+
 	
 
 	
@@ -43,40 +48,56 @@ public class Packman extends KeyAdapter  {
 	public void keyPressed(KeyEvent e) {
 		switch (e.getKeyCode()) {
 		case KeyEvent.VK_RIGHT: 
-			if(draw.mass[x][y+1]!=1)
-			{
+		x1=0;y1=1;
+		//	{y++;}
 		turn =30;
-			pic= !pic ? true:false; 
-		y++;
+		 move();
 		
-			}
-			
+
 			break;
 		case KeyEvent.VK_LEFT: 
-			if(draw.mass[x][y-1]!=1)
-			{ y--;
+			//y--
+			x1=0;y1=-1;
 		    turn =210;
-			pic= !pic ? true:false; 
-		}
+		    move(); 
+	
 			break;
 		case KeyEvent.VK_UP: 
-			if(draw.mass[x-1][y]!=1){
-			x--;
-			turn =120;
-			pic= !pic ? true:false; 
-			}
+		
+			//x--
+			    	x1=-1;y1=0;
+			    	  turn =120;
+						move();
+			  		
+	
+			
+			
 			break;
 		case KeyEvent.VK_DOWN:
-			if(draw.mass[x+1][y]!=1){
-			 x++;
-		
+			//x++
+			x1=1;y1=0;
 			turn =300;
-			pic= !pic ? true:false; 
-			}
+			move();
+			
 			break;
 		}
 		
 		
+	}
+	
+	
+	public void move(){
+		 ActionListener taskPerformer = new ActionListener() {
+		      public void actionPerformed(ActionEvent evt) {
+		    	  if(draw.mass[x+x1][y+y1]!=1){
+		  			
+		  			x=x+x1;y=y+y1;} 
+		    
+					pic= !pic ? true:false; 
+		  			
+		      }
+		  };
+		  new Timer(200, taskPerformer).start();
 	}
 	
 	public int getX() {
