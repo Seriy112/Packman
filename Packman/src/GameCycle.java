@@ -11,8 +11,8 @@ import javax.swing.JPanel;
 
 public class GameCycle extends JFrame {
 	private JPanel panel,Win;
-    private int xPosition=20;
-	private int yPosition=410;
+    private int xPosition=0;
+	private int yPosition=0;
 	private int width=15;
 	private int height=15;         
 	private Draw draw;
