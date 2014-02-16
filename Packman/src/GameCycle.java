@@ -2,10 +2,7 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
-
-
-import javax.swing.Timer;
+import java.util.concurrent.TimeUnit;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -58,12 +55,23 @@ public class GameCycle extends JFrame {
 	}
 
 	private void cycle(){
-		 ActionListener taskPerformer = new ActionListener() {
-		      public void actionPerformed(ActionEvent evt) {
-		    	  GameCycle.this.repaint();
-		      }
-		  };
-		  new Timer(30, taskPerformer).start();
+		while (true) {
+			long startTime = System.currentTimeMillis();
+	
+			GameCycle.this.repaint();
+
+						
+			long endTime = System.currentTimeMillis();
+			long deltaTime = endTime - startTime;
+			if (deltaTime < 10) {
+				try {
+					TimeUnit.MILLISECONDS.sleep(10 - deltaTime);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		}
 		
 	}
 	
