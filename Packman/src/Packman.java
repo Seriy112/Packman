@@ -22,10 +22,8 @@ public class Packman extends KeyAdapter {
 	private int y1 = 1;
 	private Draw draw;
 
-	public Packman(int xPosition, int yPosition) {
-		this.xPosition = xPosition;
-		this.yPosition = yPosition;
-
+	public Packman() {
+	
 	}
 
 	public void pic(Graphics g) {

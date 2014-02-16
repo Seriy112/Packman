@@ -17,7 +17,7 @@ public class GameCycle extends JFrame {
 	private int height=15;         
 	private Draw draw;
 	private Packman packman;
-
+	private Ghost ghost;
 	
 	public static void main(String[] args) {
 		GameCycle game = new GameCycle();
@@ -79,9 +79,11 @@ public class GameCycle extends JFrame {
 		
 				
 		draw =new Draw(xPosition,yPosition,width,height);
-		packman=new Packman(xPosition,yPosition);
+		packman=new Packman();
+		ghost=new Ghost();
 		draw.link(packman);
 		packman.link(draw);
+		ghost.link(draw);
 		addKeyListener(packman);
 		packman.move();
 	}

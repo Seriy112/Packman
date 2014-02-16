@@ -13,9 +13,10 @@ public class Ghost {
 	private Draw draw;
 	private int x = 1;
 	private int y = 1;
-	public Ghost(int xPosition, int yPosition) {
-		this.xPosition = xPosition;
-		this.yPosition = yPosition;
+	private int x1 = 1;
+	private int y1 = 1;
+	public Ghost() {
+	
 
 	}
 
@@ -28,12 +29,12 @@ public class Ghost {
 		ActionListener taskPerformer = new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
 
-			/*	if (draw.mass[x + x1][y + y1] != 1) {
+				if (draw.mass[x + x1][y + y1] != 1) {
 
 					x = x + x1;
 					y = y + y1;
 					 
-				}*/
+				}
 			}
 		};
 		new Timer(150, taskPerformer).start();
