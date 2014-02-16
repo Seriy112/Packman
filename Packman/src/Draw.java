@@ -22,7 +22,8 @@ public class Draw extends JFrame {
 	Draw draw;
 	Packman packman;
     public boolean WinLoss=true;
-	private int eatPoint=0; //644
+	private int eatPoint=0; 
+	private int point=0;
 	private int i=0;
 	private int j=0;
     private int oldI=29;
@@ -98,7 +99,8 @@ public class Draw extends JFrame {
 						if(mass[i][j]==0)
 							{	
 							g.setColor(Color.yellow);
-							g.fillOval(xPosition, yPosition, widthPoint, heightPoint);	
+							g.fillOval(xPosition, yPosition, widthPoint, heightPoint);
+							point++;
 							}
 						if(mass[i][j]==7)
 						{
@@ -116,8 +118,8 @@ public class Draw extends JFrame {
 						    
 					if(mass[packman.getX()][packman.getY()]==0){
 						
-						eatPoint++; System.out.println(eatPoint);
-						if(eatPoint==6) WinLoss=false;
+						eatPoint++; 
+						if(eatPoint==point) WinLoss=false;
 						
 					}
 					
