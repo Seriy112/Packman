@@ -166,6 +166,10 @@ void link(Packman nom){
 		
 		
 	}
+	void linkGhost(Ghost linkghost){
+		ghost=linkghost;
+		
+	}
 
 }
 	

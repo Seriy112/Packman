@@ -11,12 +11,12 @@ public class Ghost {
 	private int yPosition;
 	private int width = 15;
 	private int height = 15;
-	private Draw draw;
 	private int x = 1;
 	private int y = 1;
 	private int x1 = 1;
 	private int y1 = 1;
 	private int direction=1;
+	private Draw draw;
 	public Ghost() {
 	
 
