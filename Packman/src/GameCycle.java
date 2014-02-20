@@ -88,7 +88,7 @@ public class GameCycle extends JFrame {
 		addKeyListener(packman);
 		packman.move();
 		ghost.move();
-		ghost.logic();
+	
 	}
 
 

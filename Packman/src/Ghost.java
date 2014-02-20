@@ -67,12 +67,12 @@ public class Ghost {
 
 					x = x + x1;
 					y = y + y1;
-				
+					logic();
 				}
 				else
 				{
 					direction=(int)(1 + Math.random() * 4);
-					System.out.println(direction);
+					logic();
 				}
 			}
 		};
