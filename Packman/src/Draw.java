@@ -28,6 +28,9 @@ public class Draw extends JFrame {
 	private int j=0;
     private int oldI=29;
 	private int oldJ=1;
+	 private int oldIG=29;
+		private int oldJG=1;
+	
 	private boolean startPlase=true;
 	private boolean startPlaseGhost=true;
 	Collision collision;
@@ -139,6 +142,11 @@ public class Draw extends JFrame {
 						{
 							if(startPlaseGhost)
 							{ghost.startPlaceGhost(i, j); startPlaseGhost=false;}
+							if(oldIG!=i || oldJG!=j){
+								mass[oldIG][oldJG]=3;
+								 oldIG=i;
+								 oldJG=j;
+							}
 							ghost.xPosition=xPosition;
 							ghost.yPosition=yPosition;
 							ghost.pic(g);
