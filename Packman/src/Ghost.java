@@ -2,6 +2,7 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
 
 import javax.swing.Timer;
 
@@ -15,6 +16,7 @@ public class Ghost {
 	private int y = 1;
 	private int x1 = 1;
 	private int y1 = 1;
+	private int direction=1;
 	public Ghost() {
 	
 
@@ -25,6 +27,38 @@ public class Ghost {
 		g.fillOval(xPosition, yPosition, width, height);
 	}
 
+	public void logic(){
+		switch (direction) {
+		case 1:
+			x1 = 0;
+			y1 = 1;
+
+			
+
+			break;
+		case 2:
+
+			x1 = 0;
+			y1 = -1;
+			
+
+			break;
+		case 3:
+
+			x1 = -1;
+			y1 = 0;
+		
+			break;
+		case 4:
+
+			x1 = 1;
+			y1 = 0;
+			
+
+			break;
+		}
+	}	
+	
 	public void move() {
 		ActionListener taskPerformer = new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
@@ -35,9 +69,19 @@ public class Ghost {
 					y = y + y1;
 					 
 				}
+				else
+				{
+					direction=(int)(1 + Math.random() * 4);
+				}
 			}
 		};
 		new Timer(150, taskPerformer).start();
+	}
+	
+	public void startPlaceGhost(int x,int y) {
+		this.x=x;
+		this.y=y;
+	
 	}
 
 	void link(Draw mass) {

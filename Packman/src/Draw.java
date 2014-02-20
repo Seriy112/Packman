@@ -137,8 +137,9 @@ public class Draw extends JFrame {
 						}
 						if(mass[i][j]==2)
 						{
-							if(startPlaseGhost){ghost.startPlaceGhost(i, j); startPlaseGhost=false;}
-						
+							if(startPlaseGhost)
+							{ghost.startPlaceGhost(i, j); startPlaseGhost=false;}
+						}
                       xPosition += width;
 					}
 						yPosition += height;
