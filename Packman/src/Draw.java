@@ -142,6 +142,8 @@ public class Draw extends JFrame {
 							ghost.xPosition=xPosition;
 							ghost.yPosition=yPosition;
 							ghost.pic(g);
+							mass[ghost.getX()][ghost.getY()]=2;	
+							
 						}
                       xPosition += width;
 					}

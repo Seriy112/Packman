@@ -67,11 +67,12 @@ public class Ghost {
 
 					x = x + x1;
 					y = y + y1;
-					 
+				
 				}
 				else
 				{
 					direction=(int)(1 + Math.random() * 4);
+					System.out.println(direction);
 				}
 			}
 		};
@@ -82,6 +83,13 @@ public class Ghost {
 		this.x=x;
 		this.y=y;
 	
+	}
+	public int getX() {
+		return x;
+	}
+
+	public int getY() {
+		return y;
 	}
 
 	void link(Draw mass) {

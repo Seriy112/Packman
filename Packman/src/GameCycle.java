@@ -87,6 +87,8 @@ public class GameCycle extends JFrame {
 		ghost.link(draw);
 		addKeyListener(packman);
 		packman.move();
+		ghost.move();
+		ghost.logic();
 	}
 
 
