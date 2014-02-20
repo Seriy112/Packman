@@ -29,7 +29,9 @@ public class Draw extends JFrame {
     private int oldI=29;
 	private int oldJ=1;
 	private boolean startPlase=true;
+	private boolean startPlaseGhost=true;
 	Collision collision;
+	Ghost ghost;
 	public int mass[][]={
 			 {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
 			 {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
@@ -49,7 +51,7 @@ public class Draw extends JFrame {
 			 {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
 			 {1,0,0,0,0,0,0,0,0,0,1,1,1,0,0,0,0,1,1,1,0,0,0,0,0,0,0,0,1,0,0,1},
 			 {1,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,1},
-			 {1,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,1},
+			 {1,0,0,0,0,0,0,0,0,0,1,2,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,1},
 			 {1,0,0,0,0,1,1,1,0,0,1,1,1,1,1,1,1,1,1,1,0,0,1,1,1,0,0,0,1,0,0,1},
 			 {1,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,1,0,0,1},
 			 {1,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,1,0,0,1},
@@ -112,6 +114,7 @@ public class Draw extends JFrame {
 								 oldI=i;
 								 oldJ=j;
 							}
+						
 							
 							packman.xPosition=xPosition;
 							packman.yPosition=yPosition;
@@ -132,6 +135,10 @@ public class Draw extends JFrame {
 						
 							
 						}
+						if(mass[i][j]==2)
+						{
+							if(startPlaseGhost){ghost.startPlaceGhost(i, j); startPlaseGhost=false;}
+						
                       xPosition += width;
 					}
 						yPosition += height;
