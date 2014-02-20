@@ -139,6 +139,9 @@ public class Draw extends JFrame {
 						{
 							if(startPlaseGhost)
 							{ghost.startPlaceGhost(i, j); startPlaseGhost=false;}
+							ghost.xPosition=xPosition;
+							ghost.yPosition=yPosition;
+							ghost.pic(g);
 						}
                       xPosition += width;
 					}

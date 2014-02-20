@@ -7,8 +7,8 @@ import java.awt.event.KeyEvent;
 import javax.swing.Timer;
 
 public class Ghost {
-	private int xPosition;
-	private int yPosition;
+	public int xPosition;
+	public int yPosition;
 	private int width = 15;
 	private int height = 15;
 	private int x = 1;
