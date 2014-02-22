@@ -29,7 +29,10 @@ public class Draw extends JFrame {
     private int oldI=29;
 	private int oldJ=1;
 	 private int oldIG=29;
-		private int oldJG=1;
+		private int pointI;
+		 private int  pointJ;
+			private int oldJG=1;
+			private boolean havePoint;
 	
 	private boolean startPlase=true;
 	private boolean startPlaseGhost=true;
@@ -141,15 +144,31 @@ public class Draw extends JFrame {
 						if(mass[i][j]==2)
 						{
 							if(startPlaseGhost)
-							{ghost.startPlaceGhost(i, j); startPlaseGhost=false;}
+							{ghost.startPlaceGhost(i, j); startPlaseGhost=false; }
 							if(oldIG!=i || oldJG!=j){
-								mass[oldIG][oldJG]=3;
+								if(havePoint==true) {mass[oldIG][oldJG]=0;  havePoint=false;}
+								 else
+								 mass[oldIG][oldJG]=3;
 								 oldIG=i;
 								 oldJG=j;
 							}
 							ghost.xPosition=xPosition;
 							ghost.yPosition=yPosition;
 							ghost.pic(g);
+							
+							if(	mass[ghost.getX()][ghost.getY()]==0){
+								 pointI=ghost.getX(); 
+							     pointJ=ghost.getY();
+							     havePoint=true;
+							     
+							     
+							}
+							if(havePoint){
+							if( pointI!=ghost.getX() ||   pointJ!=ghost.getY()){
+								mass[pointI][pointJ]=0;
+							}
+								
+							}
 							mass[ghost.getX()][ghost.getY()]=2;	
 							
 						}
